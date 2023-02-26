@@ -1,0 +1,13 @@
+- id: example
+  execute-command: "/var/webhook/pass.sh"
+  command-working-directory: "/var/webhook"
+  trigger-rule:
+    match:
+      type: "value"
+      value: "Bearer CHANGEME"
+      parameter:
+        source: "header"
+        name: "Authorization"
+  pass-arguments-to-command:
+  - source: "payload"
+    name: "location"
